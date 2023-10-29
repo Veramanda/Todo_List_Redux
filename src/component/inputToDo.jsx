@@ -45,24 +45,35 @@ export const Form = ({editFormVisibility, editTodo, cancelUpdate}) => {
   return (
     <>
       {editFormVisibility===false?(
-        <form className="grid md:grid-cols-3 gap-2 md:gap-4 pt-4 pb-2 px-[6px] form-group custom-form" onSubmit={handleSubmit}>
-          <div className="md:col-span-3 flex items-center w-full px-5 py-2.5 gap-x-3">
-              <input type="text" className="form-control" required
-              value={todoValue} onChange={(e)=>setTodoValue(e.target.value)}/>
-              <button 
-                type="submit" 
-                className="bg-cyan-500 p-2 font-semibold rounded-md text-white">ADD</button>
+        <form onSubmit={handleSubmit}>
+          <div className="grid sm:grid-cols-4 gap-2 sm:gap-4 py-4 px-[6px] m-3">
+            <div className="relative w-full sm:col-span-3 gap-x-3">
+                <input 
+                  type="text" 
+                  className="sm:col-span-3 flex items-center w-full font-serif py-2.5 px-4 rounded-[8px] border-[2px] border-solid border-[#D1D9E2] outline-cyan-500 bg-white overflow-hidden gap-x-2"
+                  required
+                  value={todoValue} 
+                  onChange={(e)=>setTodoValue(e.target.value)}/>
+            </div>
+            <button 
+              type="submit" 
+              className="bg-cyan-500 font-semibold rounded-md text-white relative w-full py-2.5">ADD</button>
           </div>
         </form>
       ):(
         <div>
-          <form className="grid md:grid-cols-3 gap-3 md:gap-4 pt-4 pb-1 px-[6px]" onSubmit={editSubmit}>
-            <div className="md:col-span-3 flex items-center w-full px-5 py-2.5 gap-x-3">
-                <input type="text" className="form-control" required
-                value={editValue||""} onChange={(e)=>setEditValue(e.target.value)}/>
-                <button 
-                  type="submit" 
-                  className="bg-cyan-500 p-2 font-semibold rounded-md text-white">UPDATE</button>
+          <form onSubmit={editSubmit}>
+            <div className="grid sm:grid-cols-4 gap-2 sm:gap-4 py-4 px-[6px] m-3">
+              <div className="relative w-full sm:col-span-3 gap-x-3">
+                <input 
+                  type="text" 
+                  className="sm:col-span-3 flex items-center w-full font-serif py-2.5 px-4 rounded-[8px] border-[2px] border-solid border-[#D1D9E2] outline-cyan-500 bg-white overflow-hidden gap-x-2"
+                  required
+                  value={editValue||""} onChange={(e)=>setEditValue(e.target.value)}/>
+              </div>
+              <button 
+                type="submit" 
+                className="bg-cyan-500 font-semibold rounded-md text-white relative w-full py-2.5">UPDATE</button>
             </div>
           </form>
           <div className="flex justify-center pb-3">
