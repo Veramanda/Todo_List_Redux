@@ -2,11 +2,13 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteTodo, handleCheckbox } from '../redux/reducer/actions';
 
-export const Todos = ({handleEditClick, editFormVisibility}) => {
+export const TodoList = ({handleEditClick, editFormVisibility}) => {
   const dispatch = useDispatch();
 
   const todos = useSelector((state)=>state.operationsReducer);
+  
   return todos.map((todo)=>(
+
     <div key={todo.id} className="flex justify-between p-2 border-b-2 border-black bg-cyan-300 my-3 mx-4">
         <div className="flex justify-between">
           <div className="flex justify-center">
